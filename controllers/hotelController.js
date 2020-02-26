@@ -47,7 +47,7 @@ exports.getHotelByDate = async (req, res, next) => {
   const hoteldate = req.params.date;
   console.log(req.params);
 
-  const doc = await Hotel.find({ date: { $gte: new Date(hoteldate) } }).sort({
+  const doc = await Hotel.find({ date: { $lte: new Date(hoteldate) } }).sort({
     date: -1
   });
   res.status(200).json({
@@ -65,7 +65,7 @@ exports.getHotelByDateAndCity = async (req, res, next) => {
   console.log(req.params);
 
   const doc = await Hotel.find({
-    date: { $gte: new Date(hoteldate) },
+    date: { $lte: new Date(hoteldate) },
     city: hotelcity
   }).sort({
     date: -1
