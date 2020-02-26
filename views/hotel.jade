@@ -1,0 +1,136 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='./js/bundle.js')
+    title Document
+  body
+      header.Header
+        ul.Header_links
+          li.Header_links--el
+            .head-logo
+              img(src='./img/logo.jpg', alt='Header logo')
+          li.Header_links--el
+            a(href='#') Hotels
+          li.Header_links--el
+            a(href='#') Link
+          li.Header_links--el
+            a(href='#') Link
+          li.Header_links--el
+            a(href='#') Link
+          li.Header_links--el
+            a(href='#') Link
+          li.Header_links--el
+            a(href='#') Link
+          ul.Header_links--el.Header_links--authentication
+            ul.cred
+              if user
+                li.Header_links--el.Header_links--authentication--login
+                  a#username(href='#')=user.firstname
+                li.Header_links--el.Header_links--authentication--Register
+                  a#logout(href='#') Log Out
+              else
+                li.Header_links--el.Header_links--authentication--login
+                  a#login(href='#') Login
+                li.Header_links--el.Header_links--authentication--Register
+                  a#register(href='#') Register
+
+    
+      .filters
+        if user
+          .filter-com
+            .dropdown.dropdown__state
+              select#slt-1(name='slt-1')
+                option State
+                option(value='New Delhi', id='NweDelhi') New Delhi
+                option(value='Mumbai' id="Mumbai") Mumbai
+            .dropdown.dropdown__date
+              select#slt-2(name='slt-2')
+                option Availeble Date
+                option#01-01-2020(value='January') January
+                option#02-01-2020(value='Feburary') Feburary
+                option#03-01-2020(value='March') March
+            .searchBox
+              form(action='javascript:search()')
+                input(type='text', placeholder='Search', name='search')
+                button(type='submit')
+                  i.fa.fa-search
+
+           
+    section.hotel__cards
+      each hotel in hotels 
+        .card
+          .location-details
+            h2=hotel.name
+            h3=hotel.city
+          .logo
+            img(src='./img/hotel-logo-design-png-2.png', alt='')
+          .date
+            h2=`${hotel.date.toISOString().slice(0, 10)}`
+            h2
+          .price
+            h2=`Starts @ ${hotel.price}/-`
+            h2
+          button.button--login
+            | Book Now 
+            i.fa.fa-arrow-circle-o-right(aria-hidden='true')
+    .popup
+      .bg-modal
+        .modal-contents
+          .close +
+          .in-as
+            h3
+              a#customer.selected(href='#') CUSTOMER LOGIN
+            h3
+              a#hotel(href='#') HOTEL LOGIN
+          form(action="javascript:login()").login-form
+            .login-email
+              h2 User ID / Email
+              input(type='email', id="log-email" required='')
+            .login-pass
+              h2 Password
+              input(type='text', id="log-pass" required='')
+            a.for-pass(href='#') Forget Password?
+            button.button Login
+            p
+              | Don't have an account yet? Register Now (
+              a#register(href='#' ) Customer
+              |  / 
+              a#register(href='#') Hotel
+              |  )
+    .popup
+      .bg-modal--register
+        .modal-contents--register
+          .close +
+          .in-as
+            h3
+              a.customer.selected--reg(href='#') CUSTOMER REGISTER
+            h3
+              a.hotel(href='#') HOTEL REGISTER
+          form(action="javascript:signUP()").register-form
+            .name
+              .first-name
+                h2 First Name
+                input(type='text', id="fname" required='')
+              .last-name
+                h2 Last Name
+                input(type='text', id="lname" required='')
+            .reg-email
+              h2 Email Address
+              input(type='email', id="email" required='')
+            .reg-pass
+              h2 Password
+              input(type='password', id="pass" required='' minlength='8')
+            .reg-con
+              h2 Confirm Password
+              input(type='password', id="con-pass" required='' minlength='8')
+            button.button Register
+            p
+              | Already a member? Login here (
+              a#login(href='#') Customer
+              |  / 
+              a#login(href='#') Hotel
+              |  )
