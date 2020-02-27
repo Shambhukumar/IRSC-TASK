@@ -8572,7 +8572,7 @@ exports.logout = logout;
 
 var loginhtml = function loginhtml(user) {
   var markup = "\n      <ul class=\"cred\">\n      <li class=\"Header_links--el Header_links--authentication--login\">\n        <a id=\"username\" href=\"#\">".concat(user.firstname, "</a>\n      </li>\n      <li class=\"Header_links--el Header_links--authentication--Register\">\n          <a id=\"logout\" href=\"#\">Log Out</a>\n      </li>\n      </ul>\n    ");
-  var filters = "\n      <div class=\"filter-com\">\n    <div class=\"dropdown dropdown__state\">\n        <select id=\"slt-1\" name=\"slt-1\">\n            <option>State</option>\n            <option value=\"New Delhi\" id=\"NweDelhi\">New Delhi</option>\n            <option value=\"Mumbai\" id=\"Mumbai\">Mumbai</option>\n        </select>\n    </div>\n    <div class=\"dropdown dropdown__date\">\n        <select id=\"slt-2\" name=\"slt-2\">\n            <option>Availeble Date</option>\n            <option id=\"01-01-2020\" value=\"January\">January</option>\n            <option id=\"02-01-2020\" value=\"Feburary\">Feburary</option>\n            <option id=\"03-01-2020\" value=\"March\">March</option>\n        </select>\n    </div>\n    <div class=\"searchBox\">\n        <form action=\"javascript:search()\">\n            <input type=\"text\" placeholder=\"Search\" name=\"search\">\n            <button type=\"submit\"><i class=\"fa fa-search\"></i>\n            </button>\n        </form>\n    </div>\n</div>";
+  var filters = "\n      <div class=\"filter-com\">\n    <div class=\"dropdown dropdown__state\">\n        <select id=\"slt-1\" name=\"slt-1\">\n            <option>State</option>\n            <option value=\"New Delhi\" id=\"NweDelhi\">New Delhi</option>\n            <option value=\"Mumbai\" id=\"Mumbai\">Mumbai</option>\n        </select>\n    </div>\n    <div class=\"dropdown dropdown__date\">\n        <select id=\"slt-2\" name=\"slt-2\">\n            <option>Availeble Date</option>\n            <option id=\"01-31-2020\" value=\"January\">January</option>\n            <option id=\"02-31-2020\" value=\"Feburary\">Feburary</option>\n            <option id=\"03-31-2020\" value=\"March\">March</option>\n        </select>\n    </div>\n    <div class=\"searchBox\">\n        <form action=\"javascript:search()\">\n            <input type=\"text\" placeholder=\"Search\" name=\"search\">\n            <button type=\"submit\"><i class=\"fa fa-search\"></i>\n            </button>\n        </form>\n    </div>\n</div>";
   var ch = document.querySelector(".cred");
   ch.parentNode.removeChild(ch);
   document.querySelector(".Header_links--authentication").insertAdjacentHTML("beforeend", markup);
@@ -9110,7 +9110,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51825" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64250" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
