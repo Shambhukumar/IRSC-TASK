@@ -73,9 +73,9 @@ const loginhtml = user => {
     <div class="dropdown dropdown__date">
         <select id="slt-2" name="slt-2">
             <option>Availeble Date</option>
-            <option id="01-01-2020" value="January">January</option>
-            <option id="02-01-2020" value="Feburary">Feburary</option>
-            <option id="03-01-2020" value="March">March</option>
+            <option id="01-31-2020" value="January">January</option>
+            <option id="02-31-2020" value="Feburary">Feburary</option>
+            <option id="03-31-2020" value="March">March</option>
         </select>
     </div>
     <div class="searchBox">
